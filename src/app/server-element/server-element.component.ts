@@ -1,10 +1,12 @@
 import {
   AfterContentChecked,
-  AfterContentInit, AfterViewChecked, AfterViewInit,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
   Component,
   DoCheck,
   Input,
-  OnChanges,
+  OnChanges, OnDestroy,
   OnInit,
   SimpleChanges,
   ViewEncapsulation
@@ -23,7 +25,7 @@ export class ServerElementComponent implements
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
-  AfterViewChecked {
+  AfterViewChecked, OnDestroy {
   @Input('srvElement') element: {type: string, name: string, content: string};
   @Input() name: string;
 
@@ -60,4 +62,7 @@ export class ServerElementComponent implements
     console.log('ngAfterViewInit server-element called!');
   }
 
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy server-element called!');
+  }
 }
